@@ -1,0 +1,182 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './mixins' as mixins;
+
+$score-graphic-size: 24px;
+$background-color: var(--mat-sys-background);
+$text-color: var(--mat-sys-on-surface);
+
+:root {
+  @include mat.toolbar-overrides(
+    (
+      container-background-color: var(--mat-sys-primary-container),
+    )
+  );
+}
+
+html,
+body {
+  &.system-preference-theme {
+    color-scheme: light dark;
+  }
+  &.override-to-dark-theme {
+    color-scheme: dark;
+  }
+  &.override-to-light-theme {
+    color-scheme: light;
+  }
+  height: 100%;
+  overscroll-behavior: none;
+  --mat-toolbar-mobile-height: 56px;
+  -webkit-text-size-adjust: none;
+  font-size-adjust: none;
+  width: 100vw;
+  zoom: 1;
+
+  h3 {
+    margin: 0;
+  }
+
+  @include mat.theme(
+    (
+      color: mat.$cyan-palette,
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: $background-color;
+}
+
+.full-width-center {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+
+.space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+
+  &.padding-inline-4 {
+    div,
+    mat-card {
+      margin-inline: 4px;
+    }
+  }
+}
+
+.preserve-sticky-header {
+  mat-tab-header {
+    position: sticky !important;
+    user-select: none;
+    top: 0;
+    background: $background-color;
+    z-index: 2 !important;
+  }
+  div.mat-mdc-tab-body-wrapper {
+    @include mixins.sticky-overflow;
+    mat-tab-body:has(mat-table) {
+      @include mixins.sticky-overflow;
+      div {
+        @include mixins.sticky-overflow;
+      }
+    }
+  }
+}
+
+mat-expansion-panel {
+  border: 1px solid var(--mat-sys-outline);
+}
+
+th,
+mat-header-cell,
+mat-expansion-panel-header {
+  user-select: none;
+}
+
+th.center-text,
+td.center-text,
+mat-card,
+div {
+  &.center-text {
+    @include mixins.text-centering;
+  }
+}
+
+td.border-top {
+  border-top: solid 0.8px;
+  border-top-color: (--mat-sys-outline);
+}
+
+td.thick-bottom-border {
+  border-bottom-width: 2px;
+}
+
+td.thick-top-border {
+  border-top-width: 2px;
+}
+
+mat-form-field.almost-full-width-input {
+  width: 90vw;
+  max-width: 500px;
+}
+
+mat-form-field.hundred-percent-input {
+  width: 100%;
+  max-width: 500px;
+}
+
+mat-dialog-actions {
+  &.no-padding {
+    padding-inline: 0;
+  }
+  &.actions-center {
+    justify-content: space-evenly;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.padding-inline-8 {
+  padding-inline: 8px !important;
+}
+
+.padding-inline-16 {
+  padding-inline: 16px !important;
+}
+
+.padding-bottom-8 {
+  padding-bottom: 8px;
+}
+
+.padding-bottom-12 {
+  padding-bottom: 12px;
+}
+
+.padding-top-16 {
+  padding-top: 16px;
+}
+
+.padding-bottom-16 {
+  padding-bottom: 16px;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

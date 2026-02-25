@@ -1,0 +1,18 @@
+<mat-sidenav-container class="nav-container">
+  <mat-sidenav #sidenav class="sidenav padding-inline-8"> Coming soon! </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="title">
+        {{ appStateService.pageTitle() }}
+      </span>
+    </mat-toolbar>
+    <div class="under-toolbar"></div>
+    <div class="main-content">
+      <div class="main-content-padding"></div>
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
