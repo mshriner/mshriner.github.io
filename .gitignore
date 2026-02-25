@@ -46,8 +46,6 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
-/package-lock.json
-/yarn.lock
 /.env
 
 # System files
