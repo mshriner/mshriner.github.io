@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
@@ -38,6 +38,22 @@ import { AppStateService } from './services/app-state.service';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
+export class App implements OnInit {
   appStateService = inject(AppStateService);
+
+  private readonly MOBILE_BREAKPOINT_THRESHOLD = 768;
+
+  ngOnInit(): void {
+    this.checkViewport();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.checkViewport();
+  }
+
+  private checkViewport(): void {
+    const isDesktop = window.innerWidth > this.MOBILE_BREAKPOINT_THRESHOLD;
+    this.appStateService.setIsDesktop(isDesktop);
+  }
 }

@@ -92,6 +92,10 @@ body {
 
 mat-expansion-panel {
   border: 1px solid var(--mat-sys-outline);
+
+  .mat-expansion-panel-body {
+    padding: 0 16px 16px;
+  }
 }
 
 th,
@@ -145,6 +149,10 @@ mat-dialog-actions {
   visibility: hidden;
 }
 
+.padding-8 {
+  padding: 8px !important;
+}
+
 .padding-inline-8 {
   padding-inline: 8px !important;
 }
@@ -175,8 +183,4 @@ mat-dialog-actions {
 
 .no-wrap {
   white-space: nowrap;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }

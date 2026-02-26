@@ -5,48 +5,51 @@
       <mat-card-title>Experience</mat-card-title>
     </mat-card-header>
     <mat-divider />
-    <mat-accordion>
-      @for (employer of employerGroups; track employer) {
-        <mat-expansion-panel class="employer-panel">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div class="employer-title">{{ employer.company }}</div>
-            </mat-panel-title>
-            <mat-panel-description>
-              {{ employer.positions.length }}
-              {{ employer.positions.length === 1 ? 'position' : 'positions' }}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-accordion class="nested-accordion">
-            @for (job of employer.positions; track job) {
-              <mat-expansion-panel class="position-panel">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    <span class="job-title">{{ job.title }}</span>
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    {{ job.period }}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="panel-content">
-                  <p class="meta-info">
-                    <strong>Hours per week:</strong> {{ job.hoursPerWeek }} | <strong>Team:</strong>
-                    {{ job.team }}
-                  </p>
-                  <div class="achievements">
-                    <ul>
-                      @for (achievement of job.achievements; track achievement) {
-                        <li>{{ achievement }}</li>
-                      }
-                    </ul>
+    <div class="padding-8">
+      <mat-accordion>
+        @for (employer of employerGroups; track employer) {
+          <mat-expansion-panel class="employer-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="employer-title">{{ employer.company }}</div>
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ employer.positions.length }}
+                {{ employer.positions.length === 1 ? 'position' : 'positions' }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-accordion class="nested-accordion">
+              @for (job of employer.positions; track job) {
+                <mat-expansion-panel class="position-panel">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <span class="job-title">{{ job.title }}</span>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      {{ job.period }}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class="panel-content">
+                    <p class="meta-info">
+                      <strong>Hours per week:</strong> {{ job.hoursPerWeek }} |
+                      <strong>Team:</strong>
+                      {{ job.team }}
+                    </p>
+                    <div class="achievements">
+                      <ul>
+                        @for (achievement of job.achievements; track achievement) {
+                          <li>{{ achievement }}</li>
+                        }
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </mat-expansion-panel>
-            }
-          </mat-accordion>
-        </mat-expansion-panel>
-      }
-    </mat-accordion>
+                </mat-expansion-panel>
+              }
+            </mat-accordion>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    </div>
   </mat-card>
 
   <!-- Education Section -->
