@@ -1,5 +1,19 @@
 <mat-sidenav-container class="nav-container">
-  <mat-sidenav #sidenav class="sidenav padding-inline-8"> Coming soon! </mat-sidenav>
+  <mat-sidenav #sidenav class="sidenav padding-inline-8">
+    <nav class="sidenav-nav">
+      <div class="nav-header">
+        <h2>Navigation</h2>
+      </div>
+      <a routerLink="/" (click)="sidenav.close()" class="nav-link">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a routerLink="/resume" (click)="sidenav.close()" class="nav-link">
+        <mat-icon>description</mat-icon>
+        <span>Resume</span>
+      </a>
+    </nav>
+  </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
       <button mat-icon-button (click)="sidenav.toggle()">

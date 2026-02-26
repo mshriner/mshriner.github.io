@@ -12,7 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { AppStateService } from './services/app-state.service';
 
 @Component({
@@ -27,6 +27,7 @@ import { AppStateService } from './services/app-state.service';
     MatDividerModule,
     MatInputModule,
     RouterOutlet,
+    RouterLink,
     MatDialogModule,
     MatIconModule,
     MatButtonModule,

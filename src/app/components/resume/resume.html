@@ -1,0 +1,89 @@
+<div class="resume-container">
+  <!-- Experience Section -->
+  <mat-card class="section-card">
+    <mat-card-header>
+      <mat-card-title>Experience</mat-card-title>
+    </mat-card-header>
+    <mat-divider />
+    <mat-accordion>
+      @for (employer of employerGroups; track employer) {
+        <mat-expansion-panel class="employer-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="employer-title">{{ employer.company }}</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              {{ employer.positions.length }}
+              {{ employer.positions.length === 1 ? 'position' : 'positions' }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-accordion class="nested-accordion">
+            @for (job of employer.positions; track job) {
+              <mat-expansion-panel class="position-panel">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <span class="job-title">{{ job.title }}</span>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{ job.period }}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="panel-content">
+                  <p class="meta-info">
+                    <strong>Hours per week:</strong> {{ job.hoursPerWeek }} | <strong>Team:</strong>
+                    {{ job.team }}
+                  </p>
+                  <div class="achievements">
+                    <ul>
+                      @for (achievement of job.achievements; track achievement) {
+                        <li>{{ achievement }}</li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            }
+          </mat-accordion>
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </mat-card>
+
+  <!-- Education Section -->
+  <mat-card class="section-card">
+    <mat-card-header>
+      <mat-card-title>Education</mat-card-title>
+    </mat-card-header>
+    <mat-divider />
+    <mat-card-content>
+      @for (edu of education; track edu; let isLast = $last) {
+        <div class="education-item">
+          <h4>{{ edu.degree }}</h4>
+          <p class="school">{{ edu.school }}</p>
+          <p class="period">{{ edu.period }}</p>
+          @if (edu.details) {
+            <p class="details">{{ edu.details }}</p>
+          }
+          @if (!isLast) {
+            <mat-divider class="item-divider" />
+          }
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Skills Section -->
+  <mat-card class="section-card">
+    <mat-card-header>
+      <mat-card-title>Skills</mat-card-title>
+    </mat-card-header>
+    <mat-divider />
+    <mat-card-content class="skills-content">
+      <mat-chip-set aria-label="Skills">
+        @for (skill of skills; track skill) {
+          <mat-chip>{{ skill }}</mat-chip>
+        }
+      </mat-chip-set>
+    </mat-card-content>
+  </mat-card>
+</div>

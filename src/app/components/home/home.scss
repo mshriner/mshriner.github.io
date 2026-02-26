@@ -1,0 +1,183 @@
+.home-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header-card {
+  margin-bottom: 2rem;
+
+  mat-card-content {
+    padding: 32px;
+
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .location {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .contact-info {
+      font-size: 13px;
+      opacity: 0.85;
+
+      .separator {
+        margin: 0 8px;
+      }
+
+      span {
+        display: inline-block;
+      }
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.intro-section {
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mdc-theme-on-surface);
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.project-section {
+  .projects {
+    row-gap: 16px;
+    display: grid;
+  }
+  margin-bottom: 16px;
+}
+
+.project-card {
+  padding: 16px;
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      flex: 1;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    color: rgba(var(--mdc-theme-on-surface-rgb), 0.73);
+  }
+
+  a {
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.project-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  &.badge-industry {
+    background-color: rgba(var(--mdc-theme-primary-rgb), 0.15);
+    color: var(--mdc-theme-primary);
+  }
+
+  &.badge-personal {
+    background-color: rgba(var(--mdc-theme-on-surface-rgb), 0.12);
+    color: rgba(var(--mdc-theme-on-surface-rgb), 0.87);
+  }
+}
+
+blockquote {
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .header-card mat-card-content {
+    padding: 20px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .separator {
+        display: none;
+      }
+    }
+  }
+
+  .project-card {
+    padding: 12px;
+
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+
+      h3 {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

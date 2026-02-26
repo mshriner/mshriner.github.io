@@ -1,0 +1,72 @@
+<div class="home-container">
+  <!-- Header -->
+  <mat-card class="header-card">
+    <mat-card-content>
+      <h1>{{ name }}</h1>
+      <h3>{{ title }}</h3>
+      <p class="location">{{ location }}</p>
+      <div class="contact-info">
+        <span>{{ phone }}</span>
+        <span class="separator">•</span>
+        <span>
+          <a href="mailto:{{ email }}">{{ email }}</a>
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="intro-section">
+    <blockquote>
+      With over six years of experience as a full-stack developer, I have contributed to building
+      and maintaining mission-critical software used by internal stakeholders while working as part
+      of a close-knit development team. I operate within a dynamic technology stack that combines
+      custom-built systems with established SaaS solutions. My role has also taken me to field
+      locations alongside business partners, where I have provided hands-on support and training for
+      end users during software and hardware piloting. Additionally, I bring experience in automated
+      unit and mutation testing across both front-end and back-end environments, and I regularly
+      collaborate with QA teams to support robust integration testing. I am always looking for
+      opportunities to grow and deepen my expertise in delivering impactful software solutions.
+    </blockquote>
+  </div>
+
+  <div class="project-section">
+    <h2>Projects</h2>
+    <div class="projects">
+      <mat-card class="project-card">
+        <div class="project-header">
+          <h3>Union Pacific NetControl Technology Platform</h3>
+          <span class="project-badge badge-industry">Industry</span>
+        </div>
+        <p>
+          Micro-service architecture on an enterprise scale supporting railroad transportation
+          management
+        </p>
+        <blockquote>
+          Union Pacific made history on Jan. 6, 2024, when we became the first Class I railroad to
+          modernize the "big three" core operating platforms: Positive Train Control (PTC),
+          Computer-Aided Dispatch (CADx) and Transportation Management (NetControl).
+        </blockquote>
+        <p>
+          More information can be found in UP Online's article
+          <a href="https://www.up.com/news/service/jalali-netcontrol-tech-it-240318"
+            >NetControl Positions Union Pacific as Technology Trailblazer</a
+          >.
+        </p>
+      </mat-card>
+      <mat-card class="project-card">
+        <div class="project-header">
+          <h3>Scorecard</h3>
+          <span class="project-badge badge-personal">Personal</span>
+        </div>
+        <p>Lightweight web-app for keeping track of golf scores</p>
+        <p><em>Works best on mobile devices</em></p>
+        <a
+          href="https://scorecard-app-xwgqa.ondigitalocean.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Visit Scorecard →</a
+        >
+      </mat-card>
+    </div>
+  </div>
+</div>
