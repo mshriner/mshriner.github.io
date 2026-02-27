@@ -7,6 +7,13 @@
   gap: 24px;
 }
 
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1 !important;
+  font-size: small;
+}
+
 .section-card {
   mat-card-header {
     margin-bottom: 0;
@@ -140,10 +147,6 @@ mat-accordion {
 
   mat-chip-set {
     gap: 8px;
-  }
-
-  mat-chip {
-    border-radius: 20px;
   }
 }
 

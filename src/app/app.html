@@ -1,5 +1,11 @@
 <mat-toolbar>
-  <button mat-icon-button (click)="sidenav.toggle()">
+  <button
+    mat-icon-button
+    (click)="sidenav().toggle()"
+    matTooltip="Toggle the navigation menu"
+    matTooltipPosition="right"
+    aria-label="Hamburger button for toggling the navigation menu"
+  >
     <mat-icon>menu</mat-icon>
   </button>
   <span class="title">
@@ -9,32 +15,28 @@
 
 <mat-sidenav-container class="nav-container">
   <mat-sidenav
-    #sidenav
-    class="sidenav padding-inline-8"
+    [ngClass]="{ 'sidenav-shadow no-rounded-corners': appStateService.isDesktop() }"
     [mode]="appStateService.sidenavMode()"
-    [opened]="appStateService.isDesktop()"
+    opened="{{ appStateService.isDesktop() }}"
   >
-    <nav class="sidenav-nav">
+    <nav class="sidenav-nav padding-inline-8">
       <div class="nav-header">
         <h2>Navigation</h2>
       </div>
-      <a routerLink="/" (click)="!appStateService.isDesktop() && sidenav.close()" class="nav-link">
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </a>
-      <a
-        routerLink="/resume"
-        (click)="!appStateService.isDesktop() && sidenav.close()"
-        class="nav-link"
-      >
-        <mat-icon>description</mat-icon>
-        <span>Resume</span>
-      </a>
+      <div class="nav-options">
+        <mat-card mat-ripple (click)="goToHome()" class="nav-link">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </mat-card>
+        <mat-card mat-ripple (click)="goToResume()" class="nav-link">
+          <mat-icon>description</mat-icon>
+          <span>Resume</span>
+        </mat-card>
+      </div>
     </nav>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="main-content">
-      <div class="main-content-padding"></div>
       <router-outlet />
     </div>
   </mat-sidenav-content>

@@ -12,6 +12,7 @@ $main-padding: 8px;
 
 mat-toolbar {
   padding-inline: 6px;
+  height: var(--mat-toolbar-mobile-height);
   flex-shrink: 0;
   box-shadow:
     0 3px 6px rgba(0, 0, 0, 0.16),
@@ -32,9 +33,6 @@ mat-toolbar {
 div.main-content {
   flex: 1;
   overflow-y: auto;
-  div.main-content-padding {
-    padding-top: $main-padding;
-  }
 }
 
 div.flex-menu-option {
@@ -52,15 +50,16 @@ div.flex-menu-option {
 }
 
 .sidenav-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  .nav-options {
+    flex-direction: column;
+    display: flex;
+    gap: 0.5rem;
+  }
 }
 
 .nav-header {
-  padding: 1rem 0.75rem 1.5rem 0.75rem;
+  padding: 0.5rem;
   border-bottom: 1px solid rgba(var(--mdc-theme-on-surface-rgb), 0.12);
-  margin-bottom: 0.5rem;
 
   h2 {
     margin: 0;
@@ -71,14 +70,16 @@ div.flex-menu-option {
 }
 
 .nav-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
   padding: 0.75rem 1rem;
   color: var(--mdc-theme-primary);
   text-decoration: none;
   border-radius: 4px;
-  transition: background-color 0.2s;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  cursor: pointer;
 
   mat-icon {
     font-size: 1.25rem;
@@ -94,8 +95,18 @@ div.flex-menu-option {
   }
 
   &:hover {
-    background-color: rgba(var(--mdc-theme-primary-rgb), 0.08);
+    background-color: rgba(var(--mdc-theme-on-surface-rgb), 0.08);
   }
+}
+
+.sidenav-shadow {
+  box-shadow:
+    3px 0px 6px rgba(0, 0, 0, 0.16),
+    3px 0px 6px rgba(0, 0, 0, 0.23);
+}
+
+.no-rounded-corners {
+  border-radius: 0;
 }
 
 .bottom-options {

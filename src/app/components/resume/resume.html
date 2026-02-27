@@ -6,7 +6,7 @@
     </mat-card-header>
     <mat-divider />
     <div class="padding-8">
-      <mat-accordion>
+      <mat-accordion class="headers-align">
         @for (employer of employerGroups; track employer) {
           <mat-expansion-panel class="employer-panel">
             <mat-expansion-panel-header>
@@ -26,7 +26,7 @@
                       <span class="job-title">{{ job.title }}</span>
                     </mat-panel-title>
                     <mat-panel-description>
-                      {{ job.period }}
+                      {{ job.period | mobileContraction: appStateService.isDesktop()}}
                     </mat-panel-description>
                   </mat-expansion-panel-header>
                   <div class="panel-content">

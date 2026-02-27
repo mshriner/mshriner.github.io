@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MobileContractionPipe } from '../../pipes/mobile-contraction-pipe';
+import { AppStateService } from '../../services/app-state.service';
 
 interface ExperienceItem {
   title: string;
@@ -27,11 +29,19 @@ interface EducationItem {
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [MatCardModule, MatDividerModule, MatChipsModule, MatExpansionModule],
+  imports: [
+    MatCardModule,
+    MatDividerModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MobileContractionPipe,
+  ],
   templateUrl: './resume.html',
   styleUrls: ['./resume.scss'],
 })
 export class ResumeComponent {
+  readonly appStateService = inject(AppStateService);
+
   employerGroups: EmployerGroup[] = [
     {
       company: 'Union Pacific Railroad',
